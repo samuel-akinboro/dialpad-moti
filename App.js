@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, TouchableOpacity, FlatList, Dimensions } from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity, FlatList, Dimensions, StatusBar } from 'react-native'
 import React from 'react'
 
 const {width} = Dimensions.get('window');
@@ -7,6 +7,7 @@ const dialpad = [1, 2, 3, 4, 5, 6, 7, 8, 9, '', 0, 'del'];
 const keySize = width * .2;
 const keyTextSize = keySize / 3
 const keyGap = keySize * .2
+const keyColor = '#FDFCFD'
 
 function DialPad() {
   return (
@@ -24,13 +25,15 @@ function DialPad() {
             width: keySize,
             height: keySize,
             borderRadius: keySize,
-            borderWidth: 1,
+            borderWidth: typeof item === 'number' ? 1 : 0,
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            borderColor: keyColor
           }}
         >
           <Text style={{
-            fontSize: keyTextSize
+            fontSize: keyTextSize,
+            color: keyColor
           }}>{item}</Text>
         </TouchableOpacity>
       )}
@@ -44,9 +47,11 @@ const App = () => {
       style={{
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#292928'
       }}
     >
+      <StatusBar barStyle={'light-content'} />
       <DialPad />
     </SafeAreaView>
   )
