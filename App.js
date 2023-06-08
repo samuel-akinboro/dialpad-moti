@@ -51,13 +51,13 @@ function PinField({code}) {
       style={{
         flexDirection: 'row', 
         gap: pinIndicatorSize / 2,
-        paddingTop: 40,
+        height: 40,
         marginBottom: 60,
         alignItems: 'flex-end'
       }}
     >
       {Array(numberOfDigits).fill('').map((_, i) => {
-        const isSelected = !!code[i]
+        const isSelected = typeof code[i] === 'number'
         return (
           <MotiView
             key={`pin-${i}`} 
