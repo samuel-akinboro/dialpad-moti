@@ -63,9 +63,15 @@ function PinField({code}) {
             key={`pin-${i}`} 
             style={{
               backgroundColor: keyColor, 
-              height: isSelected ? pinIndicatorSize : 2, 
               width: pinIndicatorSize, 
               borderRadius: pinIndicatorSize
+            }}
+            transition={{
+              type: 'timing',
+              duration: 200
+            }}
+            animate={{
+              height: isSelected ? pinIndicatorSize : 2,
             }}
           />
         )
