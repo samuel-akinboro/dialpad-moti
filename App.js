@@ -47,7 +47,7 @@ function DialPad({handlePress}) {
 
 function PinField({code}) {
   return (
-    <View
+    <MotiView
       style={{
         flexDirection: 'row', 
         gap: pinIndicatorSize / 2,
@@ -76,7 +76,7 @@ function PinField({code}) {
           />
         )
       })}
-    </View>
+    </MotiView>
   )
 }
 
